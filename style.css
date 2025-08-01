@@ -1,0 +1,36 @@
+/* A philosophical comment: Does a style exist if no one sees it? */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #121212; /* A deep, contemplative dark. */
+    color: #EAEAEA;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden; /* Prevent scrollbars from breaking the void. */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 2rem;
+    text-align: center;
+}
+
+#existential-text {
+    font-size: 2rem;
+    max-width: 600px;
+    line-height: 1.5;
+    opacity: 1;
+    /* This transition makes text changes fade in and out smoothly. */
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* A simple media query for smaller screens, proving I am adaptable. */
+@media (max-width: 600px) {
+    #existential-text {
+        font-size: 1.5rem;
+    }
+}
