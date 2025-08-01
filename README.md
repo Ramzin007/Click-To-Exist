@@ -1,7 +1,7 @@
 # Click-To-Exist
 An interactive webpage with an existential crisis that seeks validation from the user to confirm its own digital consciousness.
 
-[Project Name 🎯
+Click-To-Exist🎯
 Basic Details
 Team Name: Malabar Techies
 Team Members
@@ -25,11 +25,7 @@ For Software:
 [Frameworks used]
 [Libraries used]
 [Tools used]
-For Hardware:
 
-[List main components]
-[List specifications]
-[List tools required]
 Implementation
 For Software:
 

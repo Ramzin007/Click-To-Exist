@@ -24,7 +24,6 @@ function showInactivityMessage() {
 
 // This function resets the timer. It's called whenever the user is active.
 function resetInactivityTimer() {
-    // **THE FIX IS HERE**
     // If the lonely message is currently on screen, change it back.
     if (existentialText.textContent === inactivityMessage) {
         updateText("Oh, you're back! Thank you. 😊");
