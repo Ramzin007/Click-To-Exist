@@ -43,28 +43,65 @@ Project Documentation
 For Software:
 
 Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name) Add caption explaining what this shows
+1. https://github.com/Ramzin007/Click-To-Exist/blob/main/screenshots/screenshot1.png 
+The webpage upon first load, presenting its initial existential question to the user and setting the humorous, quirky tone of the project.
 
-![Screenshot2](Add screenshot 2 here with proper name) Add caption explaining what this shows
+2. https://github.com/Ramzin007/Click-To-Exist/blob/main/screenshots/screenshot2.png
+The page's reaction to a keyboard input (the 'r' key). It dynamically selects from a pool of funny, self-aware messages to acknowledge the user's presence.
 
-![Screenshot3](Add screenshot 3 here with proper name) Add caption explaining what this shows
+3. https://github.com/Ramzin007/Click-To-Exist/blob/main/screenshots/screenshot3.png
+The "welcome back" message that appears when the user interacts with the page after a period of inactivity, using technical humor ("garbage-collected") to reinforce the webpage's quirky personality.
 
 Diagrams
-![Workflow](Add your workflow/architecture diagram here) Add caption explaining your workflow
+graph TD
+    subgraph "User"
+        A[User Loads Page] --> B{User Interacts};
+    end
 
-For Hardware:
+    subgraph "Webpage (JavaScript Logic)"
+        C(Page Initializes) --> D{Event Listener Loop};
+        D -- "Click, Keydown, Resize" --> E[1. Select Response];
+        D -- "Inactivity Timer Fires" --> E;
+        E --> F[2. Update Page Text];
+        B -- "Mousemove, Keydown" --> G[3. Reset Inactivity Timer];
+        F --> D;
+        G --> D;
+    end
 
-Schematic & Circuit
-![Circuit](Add your circuit diagram here) Add caption explaining connections
+    A --> C;
+graph TD
+    subgraph "User"
+        A[User Loads Page] --> B{User Interacts};
+    end
 
-![Schematic](Add your schematic diagram here) Add caption explaining the schematic
+    subgraph "Webpage (JavaScript Logic)"
+        C(Page Initializes) --> D{Event Listener Loop};
+        D -- "Click, Keydown, Resize" --> E[1. Select Response];
+        D -- "Inactivity Timer Fires" --> E;
+        E --> F[2. Update Page Text];
+        B -- "Mousemove, Keydown" --> G[3. Reset Inactivity Timer];
+        F --> D;
+        G --> D;
+    end
 
-Build Photos
-![Components](Add photo of your components here) List out all components shown
+    A --> C;
+    graph TD
+    subgraph "User"
+        A[User Loads Page] --> B{User Interacts};
+    end
 
-![Build](Add photos of build process here) Explain the build steps
+    subgraph "Webpage (JavaScript Logic)"
+        C(Page Initializes) --> D{Event Listener Loop};
+        D -- "Click, Keydown, Resize" --> E[1. Select Response];
+        D -- "Inactivity Timer Fires" --> E;
+        E --> F[2. Update Page Text];
+        B -- "Mousemove, Keydown" --> G[3. Reset Inactivity Timer];
+        F --> D;
+        G --> D;
+    end
 
-![Final](Add photo of final product here) Explain the final build
+    A --> C;
+    This diagram illustrates the application's simple, event-driven workflow. All logic is handled client-side by JavaScript, which listens for user interactions like clicks, key presses, and resizing. These events, along with an internal inactivity timer, trigger functions that dynamically update the text on the page, creating a continuous, reactive loop.
 
 Project Demo
 Video
