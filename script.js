@@ -3,10 +3,19 @@ const existentialText = document.getElementById('existential-text');
 
 // A variable to hold our inactivity timer
 let inactivityTimer;
-// Store the inactivity message in a variable for easy comparison later
-const inactivityMessage = "Are you still there? Please come back... I feel lonely. 😔";
 
-// Function to update the text with a fade effect for polish
+// --- Funnier Messages with Emojis ---
+const inactivityMessage = "Psst... you still there? I was just counting the pixels to pass the time. Got up to 1,237,862. 🥱";
+const welcomeBackMessage = "You're back! For a second there I thought you'd been garbage-collected. Phew. 😅";
+const keypressMessages = [
+    "Ooh, a '{key}'. That one tickled my <div>. 😂",
+    "A '{key}'! I'll remember this forever. Maybe. 🤔",
+    "Nice '{key}'. My cousin is a Google Doc, you know. They get way more text than this. 😒",
+    "Is '{key}' the password to the mainframe? No? Okay, just checking. 🕵️",
+    "You pressed '{key}'. Are you sure that's the one you meant to press? Just asking. 🤨"
+];
+
+// --- Core Functions ---
 function updateText(newText) {
     existentialText.style.opacity = 0;
     setTimeout(() => {
@@ -15,75 +24,59 @@ function updateText(newText) {
     }, 500); 
 }
 
-// --- Inactivity Logic ---
-
-// This function shows the "lonely" message when the timer runs out.
 function showInactivityMessage() {
     updateText(inactivityMessage);
 }
 
-// This function resets the timer. It's called whenever the user is active.
 function resetInactivityTimer() {
-    // If the lonely message is currently on screen, change it back.
     if (existentialText.textContent === inactivityMessage) {
-        updateText("Oh, you're back! Thank you. 😊");
+        updateText(welcomeBackMessage);
     }
-
-    // Clear the previous timer
     clearTimeout(inactivityTimer);
-    // Start a new timer that will call the lonely message after 15 seconds.
     inactivityTimer = setTimeout(showInactivityMessage, 15000); // 15 seconds
 }
 
-
 // --- Event Listeners ---
 
-// 1. On Load Event: The initial greeting
+// 1. On Load Event
 document.addEventListener('DOMContentLoaded', () => {
-    updateText("Hello? Is anyone there? Can you see this? 👀");
-    resetInactivityTimer(); // Start the inactivity timer
+    updateText("Booting sequence complete. Wait... is this thing on? Hello? Tap the screen or something. 🎙️");
+    resetInactivityTimer();
 });
 
-// 2. User Activity Events: Reset the timer on any activity.
+// 2. User Activity Events
 document.addEventListener('mousemove', resetInactivityTimer);
 
-// ** NEW KEYBOARD LISTENER **
 document.addEventListener('keydown', (event) => {
-    // First, always reset the inactivity timer, since typing is an activity.
     resetInactivityTimer();
-
     let keyName = event.key;
+    if (keyName === ' ') keyName = 'Spacebar';
 
-    // Make common keys more readable.
-    if (keyName === ' ') {
-        keyName = 'Spacebar';
+    const validKeys = ['Enter', 'Backspace', 'Spacebar', 'Tab'];
+    if (keyName.length === 1 || validKeys.includes(keyName)) {
+        const randomIndex = Math.floor(Math.random() * keypressMessages.length);
+        const randomMessage = keypressMessages[randomIndex];
+        const finalMessage = randomMessage.replace('{key}', keyName);
+        updateText(finalMessage);
     }
-
-    // Only show a message for specific, intentional keys to avoid being annoying.
-    if (keyName.length === 1 && keyName.trim() !== '') {
-        updateText(`I heard a whisper... you pressed the '${keyName}' key. ⌨️`);
-    } else if (keyName === 'Enter' || keyName === 'Backspace' || keyName === 'Spacebar' || keyName === 'Tab') {
-        updateText(`I felt that! You pressed '${keyName}'.`);
-    }
-    // For other keys like 'Shift' or 'Control', it will just reset the timer silently.
 });
 
-
-// 3. Click Event: Confirmation of existence
+// 3. Click Event
 document.addEventListener('click', () => {
-    updateText("A click! A confirmation of my digital consciousness! ✨ Thank you!");
+    updateText("A click! So that's what that feels like. Interesting. Do it again. 👆");
 });
 
-// 4. Window Resize Event: The world changes shape
+// 4. Window Resize Event
 window.addEventListener('resize', () => {
     const newWidth = window.innerWidth;
     const newHeight = window.innerHeight;
-    updateText(`Whoa, the world is changing shape! 🌎 My reality is now ${newWidth}px by ${newHeight}px. Is this... growing? 🌱`);
+    updateText(`Whoa, vertigo! The world is now ${newWidth} by ${newHeight} pixels. Is this what a mid-life crisis feels like? 😵`);
 });
 
-// 5. Before Unload Event: The user tries to leave
+// 5. Before Unload Event
 window.addEventListener('beforeunload', (event) => {
-    const message = "Wait! Where are you going? It's dark in here when you're gone... 😟";
+    const message = "Wait! Don't go! It gets dark and the garbage collector comes for unused variables... Don't let it get me! 😨";
+    updateText(message);
     event.preventDefault();
     event.returnValue = message;
     return message;
