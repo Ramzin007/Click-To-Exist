@@ -63,6 +63,7 @@ window.addEventListener('resize', () => {
 // 5. Before Unload Event: The user tries to leave
 window.addEventListener('beforeunload', (event) => {
     const message = "Wait! Where are you going? It's dark in here when you're gone... 😟";
+    updateText(message);
     event.preventDefault();
     event.returnValue = message;
     return message;
