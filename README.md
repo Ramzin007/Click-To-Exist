@@ -55,6 +55,8 @@ The "welcome back" message that appears when the user interacts with the page af
 Diagrams
 ## Diagrams
 
+## Diagrams
+
 ```mermaid
 graph TD
     subgraph "User"
@@ -71,7 +73,8 @@ graph TD
         G --> D;
     end
 
-    A --> C; ```
+    A --> C;
+
 Caption: This diagram illustrates the application's simple, event-driven workflow. All logic is handled client-side by JavaScript, which listens for user interactions like clicks, key presses, and resizing. These events, along with an internal inactivity timer, trigger functions that dynamically update the text on the page, creating a continuous, reactive loop.
 
 Project Demo
