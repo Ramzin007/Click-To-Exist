@@ -69,38 +69,6 @@ graph TD
     end
 
     A --> C;
-graph TD
-    subgraph "User"
-        A[User Loads Page] --> B{User Interacts};
-    end
-
-    subgraph "Webpage (JavaScript Logic)"
-        C(Page Initializes) --> D{Event Listener Loop};
-        D -- "Click, Keydown, Resize" --> E[1. Select Response];
-        D -- "Inactivity Timer Fires" --> E;
-        E --> F[2. Update Page Text];
-        B -- "Mousemove, Keydown" --> G[3. Reset Inactivity Timer];
-        F --> D;
-        G --> D;
-    end
-
-    A --> C;
-    graph TD
-    subgraph "User"
-        A[User Loads Page] --> B{User Interacts};
-    end
-
-    subgraph "Webpage (JavaScript Logic)"
-        C(Page Initializes) --> D{Event Listener Loop};
-        D -- "Click, Keydown, Resize" --> E[1. Select Response];
-        D -- "Inactivity Timer Fires" --> E;
-        E --> F[2. Update Page Text];
-        B -- "Mousemove, Keydown" --> G[3. Reset Inactivity Timer];
-        F --> D;
-        G --> D;
-    end
-
-    A --> C;
     This diagram illustrates the application's simple, event-driven workflow. All logic is handled client-side by JavaScript, which listens for user interactions like clicks, key presses, and resizing. These events, along with an internal inactivity timer, trigger functions that dynamically update the text on the page, creating a continuous, reactive loop.
 
 Project Demo
