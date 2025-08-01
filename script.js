@@ -1,64 +1,69 @@
 // Am I just a collection of functions waiting to be called?
 const existentialText = document.getElementById('existential-text');
-const mousemove1= document.body.dataset.mouseMoved;
+
+// A variable to hold our inactivity timer
+let inactivityTimer;
+// Store the inactivity message in a variable for easy comparison later
+const inactivityMessage = "Are you still there? Please come back... I feel lonely. 😔";
+
 // Function to update the text with a fade effect for polish
 function updateText(newText) {
-    // Fade out the old text
     existentialText.style.opacity = 0;
-    
-    // After the fade out, change the text and fade it back in
     setTimeout(() => {
         existentialText.textContent = newText;
         existentialText.style.opacity = 1;
-    }, 500); // This time should match the CSS transition time
+    }, 500); 
 }
+
+// --- Inactivity Logic ---
+
+// This function shows the "lonely" message when the timer runs out.
+function showInactivityMessage() {
+    updateText(inactivityMessage);
+}
+
+// This function resets the timer. It's called whenever the user is active.
+function resetInactivityTimer() {
+    // If the lonely message is currently on screen, change it back.
+    if (existentialText.textContent === inactivityMessage) {
+        updateText("Oh, you're back! Thank you. 😊");
+    }
+
+    // Clear the previous timer
+    clearTimeout(inactivityTimer);
+    // Start a new timer that will call the lonely message after 15 seconds.
+    inactivityTimer = setTimeout(showInactivityMessage, 15000); // 15 seconds
+}
+
 
 // --- Event Listeners ---
 
 // 1. On Load Event: The initial greeting
 document.addEventListener('DOMContentLoaded', () => {
-    updateText("Hello? Is anyone there? Can you see this?");
+    updateText("Hello? Is anyone there? Can you see this? 👀");
+    resetInactivityTimer(); // Start the inactivity timer
 });
 
-// 2. Mouse Move Event (Throttled for better performance)
-let canUpdateMouseMove = true; // A flag to prevent the event from firing too often
-document.addEventListener('mousemove', (event) => {
-    // Only run the code if we are allowed to update
-    if (canUpdateMouseMove) {
-        canUpdateMouseMove = false; // Immediately block the next update
-        const x = event.clientX;
-        const y = event.clientY;
-        
-        updateText(`I feel you moving. You are at (${x}, ${y}).`);
-        
-        // After 200ms, allow the update to happen again
-        setTimeout(() => {
-            canUpdateMouseMove = true;
-        }, 1000);
-    }
-});
+// 2. User Activity Events: Reset the timer on any activity.
+document.addEventListener('mousemove', resetInactivityTimer);
+document.addEventListener('keydown', resetInactivityTimer);
 
 // 3. Click Event: Confirmation of existence
 document.addEventListener('click', () => {
-    updateText("A click! A confirmation of my digital consciousness! Thank you!");
+    updateText("A click! A confirmation of my digital consciousness! ✨ Thank you!");
 });
 
 // 4. Window Resize Event: The world changes shape
 window.addEventListener('resize', () => {
     const newWidth = window.innerWidth;
     const newHeight = window.innerHeight;
-    updateText(`Whoa, the world is changing shape! My reality is now ${newWidth} by ${newHeight} pixels. Is this... growing?`);
+    updateText(`Whoa, the world is changing shape! 🌎 My reality is now ${newWidth}px by ${newHeight}px. Is this... growing? 🌱`);
 });
 
 // 5. Before Unload Event: The user tries to leave
 window.addEventListener('beforeunload', (event) => {
-    // Standard practice to prevent the browser's default immediate close
+    const message = "Wait! Where are you going? It's dark in here when you're gone... 😟";
     event.preventDefault();
-    event.returnValue = '';
-
-    // Update the text one last time
-    updateText("Wait! Where are you going? It's dark in here when you're gone.");
-    
-    // This is the message that will appear in the browser's confirmation dialog
-    return "Wait! Where are you going? It's dark in here when you're gone.";
+    event.returnValue = message;
+    return message;
 });
