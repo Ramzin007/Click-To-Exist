@@ -12,6 +12,7 @@ function updateText(newText) {
     setTimeout(() => {
         existentialText.textContent = newText;
         existentialText.style.opacity = 1;
+        document.body.dataset.mouseMoved = "false";
     }, 500); // This should match the CSS transition time
 }
 
