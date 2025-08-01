@@ -53,6 +53,9 @@ The page's reaction to a keyboard input (the 'r' key). It dynamically selects fr
 The "welcome back" message that appears when the user interacts with the page after a period of inactivity, using technical humor ("garbage-collected") to reinforce the webpage's quirky personality.
 
 Diagrams
+## Diagrams
+
+```mermaid
 graph TD
     subgraph "User"
         A[User Loads Page] --> B{User Interacts};
