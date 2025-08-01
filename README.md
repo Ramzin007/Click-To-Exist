@@ -72,7 +72,7 @@ graph TD
     end
 
     A --> C;
-    This diagram illustrates the application's simple, event-driven workflow. All logic is handled client-side by JavaScript, which listens for user interactions like clicks, key presses, and resizing. These events, along with an internal inactivity timer, trigger functions that dynamically update the text on the page, creating a continuous, reactive loop.
+Caption: This diagram illustrates the application's simple, event-driven workflow. All logic is handled client-side by JavaScript, which listens for user interactions like clicks, key presses, and resizing. These events, along with an internal inactivity timer, trigger functions that dynamically update the text on the page, creating a continuous, reactive loop.
 
 Project Demo
 Video
