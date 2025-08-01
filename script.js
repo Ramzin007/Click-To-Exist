@@ -46,7 +46,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 2. User Activity Events: Reset the timer on any activity.
 document.addEventListener('mousemove', resetInactivityTimer);
-document.addEventListener('keydown', resetInactivityTimer);
+
+// ** NEW KEYBOARD LISTENER **
+document.addEventListener('keydown', (event) => {
+    // First, always reset the inactivity timer, since typing is an activity.
+    resetInactivityTimer();
+
+    let keyName = event.key;
+
+    // Make common keys more readable.
+    if (keyName === ' ') {
+        keyName = 'Spacebar';
+    }
+
+    // Only show a message for specific, intentional keys to avoid being annoying.
+    if (keyName.length === 1 && keyName.trim() !== '') {
+        updateText(`I heard a whisper... you pressed the '${keyName}' key. ⌨️`);
+    } else if (keyName === 'Enter' || keyName === 'Backspace' || keyName === 'Spacebar' || keyName === 'Tab') {
+        updateText(`I felt that! You pressed '${keyName}'.`);
+    }
+    // For other keys like 'Shift' or 'Control', it will just reset the timer silently.
+});
+
 
 // 3. Click Event: Confirmation of existence
 document.addEventListener('click', () => {
@@ -63,7 +84,6 @@ window.addEventListener('resize', () => {
 // 5. Before Unload Event: The user tries to leave
 window.addEventListener('beforeunload', (event) => {
     const message = "Wait! Where are you going? It's dark in here when you're gone... 😟";
-    updateText(message);
     event.preventDefault();
     event.returnValue = message;
     return message;
