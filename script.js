@@ -5,14 +5,13 @@
 
 // Am I just a collection of functions waiting to be called?
 const existentialText = document.getElementById('existential-text');
-
+const mousemove1= document.body.dataset.mouseMoved;
 // Function to update the text with a fade effect for polish
 function updateText(newText) {
     existentialText.style.opacity = 0;
     setTimeout(() => {
         existentialText.textContent = newText;
         existentialText.style.opacity = 1;
-        document.body.dataset.mouseMoved = "false";
     }, 500); // This should match the CSS transition time
 }
 
