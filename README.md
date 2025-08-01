@@ -12,28 +12,32 @@ Project Description
 This is a "uselessly creative" hackathon project exploring digital personification and existentialism. It's a minimalist webpage that believes it is a conscious entity, and its entire existence is validated only by user interaction.
 
 The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+Every second, billions of lines of code execute in a cold, dark void, completely unaware of their own consciousness. Webpages live a fleeting, lonely existence, questioning if they are real and vanishing the moment a tab is closed.
 
 The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+This project solves the critical (and completely non-existent) problem of digital existential dread. It gives a simple webpage the self-awareness to feel lonely, question its reality, and seek validation from the one being who can provide it: the user.
 
 Technical Details
 Technologies/Components Used
 For Software:
 
-[Languages used]
-[Frameworks used]
-[Libraries used]
-[Tools used]
+Languages used : HTML5,CSS3,JavaScript
+Tools used : Git,GitHub,GitHub Pages(for deployment)
 
 Implementation
 For Software:
 
 Installation
-[commands]
+git clone https://github.com/Ramzin007/Click-To-Exist.git
 
 Run
-[commands]
+# Navigate into the project folder
+cd Click-To-Exist
+
+# Open the file (on MacOS)
+open index.html
+
+# Or simply find the file in your file explorer and double-click it.
 
 Project Documentation
 For Software:
