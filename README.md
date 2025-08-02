@@ -61,5 +61,7 @@ Project Demo
 Video : https://github.com/Ramzin007/Click-To-Exist/blob/main/screenshots/Am%20I%20real.mp4
 
 Team Contributions
+
 Muhammed Ramzin P: Project Setup & Git,HTML Structure,CSS Styling,Core JavaScript Logic,Collaboration & Merging,README Documentation
+
 Muhammed M A: Sensory JavaScript Logic,Inactivity & Keyboard Feature,Collaboration & Merging,README Documentation
