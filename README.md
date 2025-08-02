@@ -63,20 +63,22 @@ Muhammed M A: Sensory JavaScript Logic,Inactivity & Keyboard Feature,Collaborati
 
 
 
-diagram
+## Diagrams
+
 ```mermaid
 graph TD
-    A[Start: User Loads Page] --> B{Display "Hello?" Message};
-    B --> C{Start 15s Inactivity Timer};
-    C --> D{Wait for User Action};
+    subgraph "User"
+        A[User Loads Page] --> B{User Interacts};
+    end
 
-    D -- "Mousemove or Keydown" --> E{Reset 15s Timer};
-    D -- "Click, Key Press, or Resize" --> F[Show Specific Response];
-    D -- "15s Timer Completes" --> G[Show "Lonely" Message];
+    subgraph "Webpage (JavaScript Logic)"
+        C(Page Initializes) --> D{Event Listener Loop};
+        D -- "Click, Keydown, Resize" --> E[1. Select Response];
+        D -- "Inactivity Timer Fires" --> E;
+        E --> F[2. Update Page Text];
+        B -- "Mousemove, Keydown" --> G[3. Reset Inactivity Timer];
+        F --> D;
+        G --> D;
+    end
 
-    E --> D;
-    F --> E;
-
-    G --> H{Wait for Next User Action};
-    H -- "Any Activity" --> I{Show "Welcome Back" Message};
-    I --> E;
+    A --> C;
