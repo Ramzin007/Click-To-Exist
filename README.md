@@ -52,11 +52,6 @@ The page's reaction to a keyboard input (the 'r' key). It dynamically selects fr
 3. https://github.com/Ramzin007/Click-To-Exist/blob/main/screenshots/screenshot3.png
 The "welcome back" message that appears when the user interacts with the page after a period of inactivity, using technical humor ("garbage-collected") to reinforce the webpage's quirky personality.
 
-Diagrams
-
-
-Caption: This diagram illustrates the application's simple, event-driven workflow. All logic is handled client-side by JavaScript, which listens for user interactions like clicks, key presses, and resizing. These events, along with an internal inactivity timer, trigger functions that dynamically update the text on the page, creating a continuous, reactive loop.
-
 Project Demo
 Video : https://github.com/Ramzin007/Click-To-Exist/blob/main/screenshots/Am%20I%20real.mp4
 
