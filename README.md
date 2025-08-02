@@ -58,13 +58,8 @@ Diagrams
 Caption: This diagram illustrates the application's simple, event-driven workflow. All logic is handled client-side by JavaScript, which listens for user interactions like clicks, key presses, and resizing. These events, along with an internal inactivity timer, trigger functions that dynamically update the text on the page, creating a continuous, reactive loop.
 
 Project Demo
-Video
-
-
-Additional Demos
-[Add any extra demo materials/links]
+Video : https://github.com/Ramzin007/Click-To-Exist/blob/main/screenshots/Am%20I%20real.mp4
 
 Team Contributions
-[Name 1]: [Specific contributions]
-[Name 2]: [Specific contributions]
-[Name 3]: [Specific contributions]
+Muhammed Ramzin P: Project Setup & Git,HTML Structure,CSS Styling,Core JavaScript Logic,Collaboration & Merging,README Documentation
+Muhammed M A: Sensory JavaScript Logic,Inactivity & Keyboard Feature,Collaboration & Merging,README Documentation
