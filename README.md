@@ -60,3 +60,23 @@ Team Contributions
 Muhammed Ramzin P: Project Setup & Git,HTML Structure,CSS Styling,Core JavaScript Logic,Collaboration & Merging,README Documentation
 
 Muhammed M A: Sensory JavaScript Logic,Inactivity & Keyboard Feature,Collaboration & Merging,README Documentation
+
+
+
+diagram
+```mermaid
+graph TD
+    A[Start: User Loads Page] --> B{Display "Hello?" Message};
+    B --> C{Start 15s Inactivity Timer};
+    C --> D{Wait for User Action};
+
+    D -- "Mousemove or Keydown" --> E{Reset 15s Timer};
+    D -- "Click, Key Press, or Resize" --> F[Show Specific Response];
+    D -- "15s Timer Completes" --> G[Show "Lonely" Message];
+
+    E --> D;
+    F --> E;
+
+    G --> H{Wait for Next User Action};
+    H -- "Any Activity" --> I{Show "Welcome Back" Message};
+    I --> E;
